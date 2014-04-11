@@ -1,0 +1,22 @@
+{
+  "name": "object-key",
+  "main": "./object-key.js",
+  "keywords": [
+    "angular",
+    "object",
+    "key",
+    "transform",
+    "transformrequest",
+    "transformresponse",
+    "camelize",
+    "camelcase",
+    "camel",
+    "snakify",
+    "snakecase",
+    "snake"
+  ],
+  "dependencies": {
+    "angular": ">=1.2.14"
+  },
+  "devDependencies": {}
+}

@@ -24,4 +24,8 @@ constant('ObjectKey', new function() {
   this.camelize = _deepTransform(function(string) {
     return string.replace(/[-_\s]+(.)?/g, function(match, $1) {return $1 ? $1.toUpperCase() : ''});
   });
+
+  this.snakify = _deepTransform(function(string) {
+    return string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+  });
 }());

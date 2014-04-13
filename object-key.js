@@ -42,7 +42,7 @@ constant('ObjectKey', new function() {
   });
 
   this.toSnakeCase = _deepTransform(function(string) {
-    return string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+    return string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-_\s]+/g, '_').toLowerCase();
   });
 
   this.toPoodleCase = _deepTransform(function(string) {

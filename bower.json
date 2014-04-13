@@ -1,6 +1,6 @@
 {
-  "name": "object-key",
-  "main": "./object-key.js",
+  "name": "angular-object-key",
+  "main": "./angular-object-key.js",
   "keywords": [
     "angular",
     "object",

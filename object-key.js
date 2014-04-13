@@ -6,11 +6,27 @@ angular.module('ObjectKey', []).
 
 constant('ObjectKey', new function() {
   var _deepTransform = function(style) {
-    var stylize = function(object) {
-      var o = {};
+    var stylize = function(object, config) {
+      /*
+      // config
+      // | except
+      */
+
+      var config = config || {},
+          o = {},
+          isException;
+
+      if (config.except instanceof RegExp) {
+        isException = function(string) {
+          return string.match(config.except);
+        };
+      } else {
+        isException = function() {return false};
+      }
 
       for (var k in object) {
-        object.hasOwnProperty(k) && (
+        object.hasOwnProperty(k) &&
+        !isException(k) && (
           o[style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
         );
       }

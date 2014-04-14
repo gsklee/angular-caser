@@ -1,4 +1,4 @@
-/*! Angular ObjectKey 0.1.0 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular ObjectKey 0.1.1 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 
@@ -25,9 +25,8 @@ constant('ObjectKey', new function() {
       }
 
       for (var k in object) {
-        object.hasOwnProperty(k) &&
-        !isException(k) && (
-          o[style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
+        object.hasOwnProperty(k) && (
+          o[isException(k) ? k : style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
         );
       }
 

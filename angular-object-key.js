@@ -1,4 +1,4 @@
-/*! Angular ObjectKey 0.1.1 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular ObjectKey 0.1.2 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 
@@ -6,32 +6,34 @@ angular.module('ObjectKey', []).
 
 constant('ObjectKey', new function() {
   var _deepTransform = function(style) {
-    var stylize = function(object, config) {
-      /*
-      // config
-      // | except
-      */
+    var isException,
+        stylize = function(object, config) {
+          /*
+          // config
+          // | except
+          */
 
-      var config = config || {},
-          o = {},
-          isException;
+          var config = config || {},
+              o = {};
 
-      if (config.except instanceof RegExp) {
-        isException = function(string) {
-          return string.match(config.except);
+          if (!isException) {
+            if (config.except instanceof RegExp) {
+              isException = function(string) {
+                return string.match(config.except);
+              };
+            } else {
+              isException = function() {return false};
+            }
+          }
+
+          for (var k in object) {
+            object.hasOwnProperty(k) && (
+              o[isException(k) ? k : style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
+            );
+          }
+
+          return o;
         };
-      } else {
-        isException = function() {return false};
-      }
-
-      for (var k in object) {
-        object.hasOwnProperty(k) && (
-          o[isException(k) ? k : style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
-        );
-      }
-
-      return o;
-    };
 
     return stylize;
   };

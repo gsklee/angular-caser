@@ -5,9 +5,10 @@
 angular.module('ObjectKey', []).
 
 constant('ObjectKey', new function() {
-  var _deepTransform = function(style) {
+  var transform = function(style) {
     var isException,
-        stylize = function(object, config) {
+
+        stylize = function(input, config) {
           /*
           // config
           // | except
@@ -26,10 +27,19 @@ constant('ObjectKey', new function() {
             }
           }
 
-          for (var k in object) {
-            object.hasOwnProperty(k) && (
-              o[isException(k) ? k : style(k)] = 'object' === typeof object[k] ? stylize(object[k]) : object[k]
-            );
+          switch (typeof input) {
+            case 'string':
+              o = style(input);
+
+              break
+            case 'object':
+              for (var k in input) {
+                input.hasOwnProperty(k) && (
+                  o[isException(k) ? k : style(k)] = 'object' === typeof input[k] ? stylize(input[k]) : input[k]
+                );
+              }
+
+              break;
           }
 
           return o;
@@ -38,15 +48,15 @@ constant('ObjectKey', new function() {
     return stylize;
   };
 
-  this.toCamelCase = _deepTransform(function(string) {
+  this.toCamelCase = transform(function(string) {
     return string.replace(/[-_\s]+(.)?/g, function(match, $1) {return $1 ? $1.toUpperCase() : ''});
   });
 
-  this.toSnakeCase = _deepTransform(function(string) {
+  this.toSnakeCase = transform(function(string) {
     return string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-_\s]+/g, '_').toLowerCase();
   });
 
-  this.toPoodleCase = _deepTransform(function(string) {
+  this.toPoodleCase = transform(function(string) {
     return string.replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
   });
 }());

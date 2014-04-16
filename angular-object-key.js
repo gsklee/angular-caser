@@ -2,7 +2,7 @@
 
 'use strict';
 
-angular.module('ObjectKey', []).
+angular.module('angularObjectKey', []).
 
 constant('ObjectKey', new function() {
   var transform = function(style) {

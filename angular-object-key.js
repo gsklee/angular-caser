@@ -1,4 +1,4 @@
-/*! Angular ObjectKey 0.1.3 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular ObjectKey 0.1.4 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 

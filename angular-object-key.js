@@ -1,8 +1,8 @@
-/*! Angular ObjectKey 0.1.3 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular ObjectKey 0.1.4 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 
-angular.module('ObjectKey', []).
+angular.module('angularObjectKey', []).
 
 constant('ObjectKey', new function() {
   var transform = function(style) {

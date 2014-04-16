@@ -1,2 +1,2 @@
-object-key
-==========
+angular-object-key
+==================

@@ -1,3 +1,9 @@
+### 0.1.5 / 2014.04.18
+* Rename the library.
+* Add new letter casing methods.
+
+---
+
 ### 0.1.4 / 2014.04.16
 * Rename the module.
 

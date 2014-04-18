@@ -56,6 +56,10 @@ constant('$caser', new function() {
     return string.replace(/[-_\s]+(.)?/g, function(match, $1) {return $1 ? $1.toUpperCase() : ''});
   });
 
+  this.toUpperCamelCase = function(string) {
+    return this.capitalize(this.toCamelCase(string));
+  }.bind(this); 
+
   this.toSnakeCase = transform(function(string) {
     return string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-_\s]+/g, '_').toLowerCase();
   });

@@ -1,10 +1,10 @@
-/*! Angular ObjectKey 0.1.4 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular Caser 0.1.4 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 
-angular.module('angularObjectKey', []).
+angular.module('angularCaser', []).
 
-constant('ObjectKey', new function() {
+constant('$caser', new function() {
   var transform = function(style) {
     var isException,
 

@@ -1,8 +1,11 @@
 {
-  "name": "angular-object-key",
-  "main": "./angular-object-key.js",
+  "name": "angular-caser",
+  "main": "./angular-caser.js",
   "keywords": [
     "angular",
+    "letter",
+    "case",
+    "caser",
     "object",
     "key",
     "transform",
@@ -13,7 +16,8 @@
     "camel",
     "snakify",
     "snakecase",
-    "snake"
+    "snake",
+    "dasherize"
   ],
   "dependencies": {
     "angular": ">=1.2.14"

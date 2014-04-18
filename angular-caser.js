@@ -1,4 +1,4 @@
-/*! Angular Caser 0.1.4 | Copyright (c) 2014 Gias Kay Lee | MIT License */
+/*! Angular Caser 0.1.5 | Copyright (c) 2014 Gias Kay Lee | MIT License */
 
 'use strict';
 
